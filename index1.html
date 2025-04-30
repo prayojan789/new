@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elite FC - Official Website</title>
+  <style>
+    :root {
+      --primary-color: #0044cc;
+      --accent-color: #ffcc00;
+      --bg-color: #0b0c10;
+      --text-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    header {
+      background: var(--primary-color);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 2rem;
+      background: url('https://images.unsplash.com/photo-1600788907418-8fae6db1c18a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color: white;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      animation: slideUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      max-width: 600px;
+      animation: slideUp 1.4s ease-out;
+    }
+
+    .cta-btn {
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background: var(--accent-color);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #111319;
+    }
+
+    .feature {
+      margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .feature.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background-color: #000;
+      color: #999;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (min-width: 768px) {
+      .hero h2 {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Elite FC</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to Elite FC</h2>
+    <p>Champions aren't born, they're built. Join the legacy of passion, strength, and honor on the field.</p>
+    <button class="cta-btn" onclick="joinClub()">Join The Club</button>
+  </section>
+
+  <section id="about">
+    <h2>About Elite FC</h2>
+    <div class="feature">
+      <p>Founded in 1990, Elite FC has become one of the top-performing clubs in the league with multiple championships and a legacy of excellence.</p>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Meet Our Stars</h2>
+    <div class="feature">
+      <p>From legends to rising talents, our squad is the heart and soul of the club. Experience football like never before with unmatched skills and spirit.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="feature">
+      <p>Email: contact@elitefc.com<br>Phone: +123-456-7890</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Elite FC. All rights reserved.
+  </footer>
+
+  <script>
+    function joinClub() {
+      alert("Welcome to Elite FC! We'll contact you soon.");
+    }
+
+    // Animate sections on scroll
+    const features = document.querySelectorAll('.feature');
+    window.addEventListener('scroll', () => {
+      features.forEach(feature => {
+        const rect = feature.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          feature.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
